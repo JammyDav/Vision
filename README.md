@@ -11,6 +11,8 @@ A modular JavaScript proof of concept for **camera diagnostics first, optional s
 
 Expected Pages URL after deployment: **https://jammydav.github.io/Vision/**. This address is not proof that deployment has completed.
 
+The initial release uses the `gh-pages` branch because GitHub did not register the newly pushed Actions workflow during setup. After committing an update, `npm run publish:pages` checks it and publishes only `public/`. The Actions workflow is prepared for migration; see DEPLOYMENT.md before switching modes.
+
 ## Local development
 
 Use Node.js 24 (22 or newer supported). There are no packages to install.
