@@ -9,7 +9,6 @@
     "build": "node scripts/build.mjs",
     "test": "node --test",
     "check": "node scripts/check.mjs",
-    "proxy": "node --env-file-if-exists=.env server/index.mjs",
-    "publish:pages": "npm run check && npm test && npm run build && git subtree push --prefix public origin gh-pages"
+    "proxy": "node --env-file-if-exists=.env server/index.mjs"
   }
 }

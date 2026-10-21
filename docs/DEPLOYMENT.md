@@ -2,23 +2,9 @@
 
 Repository: https://github.com/JammyDav/Vision
 
-## Initial release: branch publishing
+## Automatic deployment from main
 
-During setup, GitHub accepted the workflow file but did not register it or create any runs; manual workflow dispatch returned 404 even with repository Actions enabled. The initial diagnostic release therefore uses GitHub Pages' supported **gh-pages branch, root folder** publishing mode. Only the `public/` subtree is pushed to that branch. The source remains on `main`, and `.nojekyll` disables Jekyll processing.
-
-After committing source changes on main, publish with:
-
-```sh
-npm run publish:pages
-```
-
-This runs the checks/tests/build, then uses `git subtree push --prefix public origin gh-pages` to update the static publishing branch without force-pushing. GitHub builds the branch automatically. In Settings → Pages, keep Source = Deploy from a branch, branch = gh-pages, folder = / (root) while using this method. Do not mix both deployment modes.
-
-The command publishes committed files in `public/`; commit changes first. The build validates the artifact boundary, while the subtree publishes the same public source directly. Server code and secrets cannot enter this branch through the subtree command.
-
-## Actions workflow: prepared for migration
-
-Once GitHub registers the workflow, the checked-in workflow can replace branch publishing. Change Settings → Pages → Source to GitHub Actions, then follow the steps below. Future pushes to main will deploy automatically after checks. Until that migration, continue using `npm run publish:pages`.
+The active publishing source is **GitHub Actions**. The repository's `gh-pages` branch contains an initial static snapshot and is not the active publishing source; all future work belongs on `main` or feature branches.
 
 1. Push this repository to `main`. The workflow is `.github/workflows/pages.yml`.
 2. In GitHub, open **Settings → Pages → Build and deployment → Source → GitHub Actions**. Do this before the first workflow run (or rerun the workflow after enabling it).
@@ -46,6 +32,6 @@ GitHub Pages supplies HTTPS. It cannot run the AI proxy or keep server secrets. 
 
 ## Updating
 
-Edit the modules in `public/src/`, run the three checks in the README, commit and push. In branch mode run `npm run publish:pages` after committing; in Actions mode pushes to main redeploy automatically. Hard refresh on Quest if an old version remains cached. There is no service worker to remove.
+Edit the modules in `public/src/`, run the three checks in the README, commit and push. Pushes to main redeploy automatically. Hard refresh on Quest if an old version remains cached. There is no service worker to remove.
 
-To revert a published change, revert its commit on main, run checks, push and republish using the active mode. This does not change camera permissions already granted in the browser; those are controlled through site/OS settings.
+To revert a published change, revert its commit on main, run checks and push. This does not change camera permissions already granted in the browser; those are controlled through site/OS settings.
