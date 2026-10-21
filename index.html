@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="referrer" content="no-referrer">
+  <meta name="description" content="Check Quest 3 browser camera access before connecting AI image recognition.">
+  <title>Vision · Quest camera lab</title>
+  <link rel="stylesheet" href="./styles.css">
+  <script type="module" src="./src/app.js"></script>
+</head>
+<body>
+<main id="app">
+  <header><a class="brand" href="./"><span class="brand-icon">◉</span> VISION <span class="muted">/ QUEST CAMERA LAB</span></a><span class="tag">PROOF OF CONCEPT · 0.1</span></header>
+  <section class="intro"><div><p class="eyebrow">META QUEST 3 · JAVASCRIPT · WEBXR</p><h1>See what your<br>browser can see.</h1><p class="lede">Start with camera access. Check a real frame.<br>Connect image recognition when you're ready.</p></div><aside class="privacy"><span class="dot"></span><strong>Local until you choose to send</strong><p>No microphone. No automatic uploads. Camera previews and captured frames stay in this tab.</p></aside></section>
+  <section class="status-strip" aria-label="Live status"><div><span class="label">CONNECTION</span><strong id="secure-status">Checking…</strong></div><div><span class="label">CAMERA</span><strong id="camera-status">Not requested</strong></div><div><span class="label">FRAME SOURCE</span><strong id="source-status">Unverified</strong></div><div><span class="label">WEBXR AR</span><strong id="xr-status">Checking…</strong></div></section>
+  <div id="message" class="message" role="status" aria-live="polite">Run the browser check, then request a camera.</div>
+  <div class="workspace">
+    <section class="card camera-card"><div class="card-heading"><div><p class="eyebrow">01 / CAMERA ACCESS</p><h2>Find a live feed</h2></div><span id="live-badge" class="tag">CAMERA OFF</span></div>
+      <div class="preview"><video id="video" autoplay muted playsinline aria-label="Live camera preview"></video><div id="preview-empty" class="preview-empty"><span class="viewfinder">⌗</span><strong>Your camera preview appears here</strong><p>Seeing passthrough around this window<br>doesn't mean this page can read it.</p></div><span id="frame-info" class="frame-info">No frames received</span></div>
+      <label for="camera-select">Camera request</label><select id="camera-select"><option value="environment">Environment camera (strict diagnostic)</option><option value="any">Any camera (may be an avatar)</option></select>
+      <div class="actions"><button id="start" class="primary">Request camera</button><button id="stop" disabled>Stop camera</button><button id="enumerate">Refresh camera list</button></div>
+      <p class="hint">The environment request is strict so a fallback avatar isn't mistaken for a room camera. Try “Any camera” separately if it fails.</p>
+    </section>
+    <section class="card"><div class="card-heading"><div><p class="eyebrow">02 / BROWSER CHECK</p><h2>Check the foundations</h2></div><button id="check" class="small">Run check</button></div><dl id="checks" class="checks"></dl>
+      <label for="os-version">Headset OS version <span class="muted">(optional, from Settings)</span></label><input id="os-version" placeholder="e.g. Horizon OS version and build" maxlength="160">
+      <label for="notes">Test notes <span class="muted">(included in report)</span></label><textarea id="notes" rows="2" maxlength="2000" placeholder="Permission prompt? Real room, avatar, black or frozen?"></textarea>
+      <button id="report">Download diagnostic report</button><p class="hint">Report includes browser version, errors and frame statistics. It excludes images, device IDs, camera labels and AI credentials.</p>
+      <div class="xr-box"><h3>Try immersive passthrough</h3><p>This checks WebXR viewing separately from camera pixels. Start a camera above first if available.</p><button id="enter-xr" disabled>Enter WebXR AR</button><button id="exit-xr" disabled>Exit AR</button><p class="hint">In AR: controller trigger captures a frame, or requests the chosen camera if none is active. Grip exits. If no controls appear, use the headset's system exit.</p></div>
+    </section>
+    <section class="card"><div class="card-heading"><div><p class="eyebrow">03 / FRAME VERIFICATION</p><h2>Inspect before you send</h2></div><button id="capture" disabled>Capture frame</button></div><div class="snapshot"><img id="snapshot" alt="Captured camera frame for review" hidden><p id="snapshot-empty">No captured frame yet.<br>A live, readable camera is required.</p></div><p id="snapshot-info" class="hint">Snapshots are limited to 768 pixels on the longest side.</p>
+      <label class="checkbox"><input id="confirm-source" type="checkbox" disabled><span>I checked this frame. It shows my real surroundings from the intended camera, not an avatar or blank view.</span></label><button id="clear-frame" disabled>Discard frame</button>
+    </section>
+    <section class="card"><div class="card-heading"><div><p class="eyebrow">04 / OPTIONAL AI</p><h2>Recognize one image</h2></div><span class="tag">OPT IN</span></div><p>Send only the reviewed snapshot to your private proxy and OpenAI. There is no continuous streaming.</p><details><summary>Connect your AI proxy</summary><label for="endpoint">Proxy URL</label><input id="endpoint" type="url" placeholder="https://your-proxy.example/recognize" autocomplete="off"><label for="access-token">Private proxy access token</label><input id="access-token" type="password" autocomplete="off" placeholder="Your proxy token, never an OpenAI API key"><p class="hint">Keep these in this tab only. The provider key belongs on the server. Set up the proxy using the repository's AI guide.</p></details><label class="checkbox"><input id="consent" type="checkbox"><span>I agree to send this snapshot to my configured proxy and OpenAI for recognition. API charges may apply.</span></label><button id="recognize" class="primary" disabled>Send reviewed frame to AI</button><p id="ai-status" class="hint">Waiting for a captured, verified frame and proxy configuration.</p><pre id="ai-result" class="ai-result" aria-live="polite"></pre></section>
+  </div>
+  <details class="card log-card"><summary>Diagnostic event log</summary><pre id="log"></pre></details>
+  <footer>VISION / CAMERA FIRST, AI SECOND <span>Test on the headset · no emulated success</span></footer>
+</main>
+</body>
+</html>

@@ -1,0 +1,348 @@
+:root{
+  color-scheme:light;
+  --ink:#142b32;
+  --muted:#5c7075;
+  --line:#d6e1df;
+  --paper:#f2f6f3;
+  --accent:#086b5c;
+  --mint:#d9f2e6;
+  font:16px/1.55 system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+  *{
+    box-sizing:border-box}
+    body{
+      margin:0;
+      background:var(--paper);
+      color:var(--ink)}
+      main{
+        max-width:1400px;
+        margin:auto;
+        padding:0 42px}
+        header{
+          min-height:94px;
+          display:flex;
+          justify-content:space-between;
+          align-items:center;
+          border-bottom:1px solid var(--line);
+          gap:20px}
+          .brand{
+            font-size:13px;
+            letter-spacing:.12em;
+            color:var(--ink);
+            font-weight:750;
+            text-decoration:none}
+            .brand-icon{
+              color:var(--accent);
+              font-size:25px;
+              margin-right:10px;
+              vertical-align:middle}
+              .muted{
+                color:var(--muted);
+                font-weight:400}
+                .tag{
+                  font-size:10px;
+                  letter-spacing:.09em;
+                  border:1px solid var(--line);
+                  padding:6px 9px;
+                  border-radius:5px;
+                  white-space:nowrap}
+                  .intro{
+                    display:flex;
+                    align-items:center;
+                    justify-content:space-between;
+                    gap:60px;
+                    padding:55px 0 38px}
+                    .eyebrow{
+                      font-size:10px;
+                      letter-spacing:.16em;
+                      font-weight:750;
+                      color:var(--accent);
+                      margin:0 0 12px}
+                      h1{
+                        font-size:clamp(38px,4.8vw,65px);
+                        letter-spacing:-.055em;
+                        line-height:1.06;
+                        margin:0 0 20px;
+                        font-weight:650}
+                        .lede{
+                          font-size:17px;
+                          color:var(--muted);
+                          margin:0}
+                          .privacy{
+                            max-width:320px;
+                            border-left:1px solid var(--line);
+                            padding:10px 0 10px 25px;
+                            font-size:13px}
+                            .privacy p{
+                              margin-bottom:0;
+                              color:var(--muted)}
+                              .dot{
+                                display:inline-block;
+                                width:7px;
+                                height:7px;
+                                border-radius:50%;
+                                background:var(--accent);
+                                margin-right:8px}
+                                .status-strip{
+                                  display:grid;
+                                  grid-template-columns:repeat(4,1fr);
+                                  background:#e7eeea;
+                                  border:1px solid var(--line);
+                                  border-radius:9px;
+                                  padding:17px 24px;
+                                  gap:20px}
+                                  .status-strip strong{
+                                    font-size:13px;
+                                    display:block}
+                                    .label{
+                                      font-size:9px;
+                                      letter-spacing:.13em;
+                                      color:var(--muted);
+                                      display:block;
+                                      margin-bottom:5px}
+                                      .message{
+                                        font-size:13px;
+                                        padding:15px 0;
+                                        min-height:55px}
+                                        .message.error{
+                                          color:#a33923}
+                                          .workspace{
+                                            display:grid;
+                                            grid-template-columns:1.15fr 1fr;
+                                            gap:22px}
+                                            .card{
+                                              background:#fff;
+                                              border:1px solid var(--line);
+                                              border-radius:12px;
+                                              padding:26px}
+                                              .card-heading{
+                                                display:flex;
+                                                align-items:center;
+                                                justify-content:space-between;
+                                                gap:12px;
+                                                margin-bottom:22px}
+                                                .card-heading .eyebrow{
+                                                  margin-bottom:5px}
+                                                  h2{
+                                                    font-size:21px;
+                                                    letter-spacing:-.025em;
+                                                    margin:0;
+                                                    font-weight:650}
+                                                    h3{
+                                                      font-size:15px;
+                                                      margin:0 0 7px}
+                                                      p{
+                                                        font-size:14px}
+                                                        .preview{
+                                                          background:#14282b;
+                                                          position:relative;
+                                                          border-radius:8px;
+                                                          overflow:hidden;
+                                                          aspect-ratio:4/3;
+                                                          margin-bottom:20px;
+                                                          color:#b6d3ce;
+                                                          display:grid;
+                                                          place-items:center}
+                                                          video{
+                                                            width:100%;
+                                                            height:100%;
+                                                            object-fit:contain;
+                                                            position:absolute}
+                                                            .preview-empty{
+                                                              text-align:center;
+                                                              z-index:1;
+                                                              font-size:13px;
+                                                              pointer-events:none}
+                                                              .preview-empty strong{
+                                                                display:block}
+                                                                .preview-empty p{
+                                                                  font-size:12px;
+                                                                  color:#8eaaa7}
+                                                                  .viewfinder{
+                                                                    display:block;
+                                                                    font-size:48px;
+                                                                    font-weight:200;
+                                                                    color:#6c9d94;
+                                                                    margin-bottom:15px}
+                                                                    .frame-info{
+                                                                      position:absolute;
+                                                                      bottom:12px;
+                                                                      left:14px;
+                                                                      font:11px ui-monospace,monospace;
+                                                                      background:#14282bd9;
+                                                                      padding:4px 7px;
+                                                                      border-radius:4px}
+                                                                      label{
+                                                                        display:block;
+                                                                        font-size:12px;
+                                                                        font-weight:650;
+                                                                        margin:15px 0 7px}
+                                                                        input,textarea,select{
+                                                                          font:inherit;
+                                                                          color:var(--ink);
+                                                                          background:#fbfcfb;
+                                                                          border:1px solid #b8cac5;
+                                                                          border-radius:6px;
+                                                                          padding:11px 12px;
+                                                                          width:100%;
+                                                                          font-size:13px}
+                                                                          textarea{
+                                                                            resize:vertical}
+                                                                            button{
+                                                                              font:600 12px/1.3 system-ui,sans-serif;
+                                                                              min-height:44px;
+                                                                              border:1px solid #b8cac5;
+                                                                              background:#fff;
+                                                                              color:var(--ink);
+                                                                              border-radius:6px;
+                                                                              padding:11px 15px;
+                                                                              cursor:pointer}
+                                                                              button:hover{
+                                                                                background:#edf5f0}
+                                                                                button.primary{
+                                                                                  background:var(--accent);
+                                                                                  color:#fff;
+                                                                                  border-color:var(--accent)}
+                                                                                  button.primary:hover{
+                                                                                    background:#04594d}
+                                                                                    button:disabled{
+                                                                                      opacity:.45;
+                                                                                      cursor:not-allowed}
+                                                                                      button.small{
+                                                                                        padding:9px 12px;
+                                                                                        min-height:40px}
+                                                                                        :focus-visible{
+                                                                                          outline:3px solid #d9982e;
+                                                                                          outline-offset:3px}
+                                                                                          .actions{
+                                                                                            display:flex;
+                                                                                            flex-wrap:wrap;
+                                                                                            gap:9px;
+                                                                                            margin-top:12px}
+                                                                                            .hint{
+                                                                                              font-size:11px;
+                                                                                              color:var(--muted);
+                                                                                              line-height:1.6}
+                                                                                              .checks{
+                                                                                                margin:0 0 20px}
+                                                                                                .check-row{
+                                                                                                  display:flex;
+                                                                                                  justify-content:space-between;
+                                                                                                  gap:14px;
+                                                                                                  border-bottom:1px solid #e8eeeb;
+                                                                                                  padding:9px 0;
+                                                                                                  font-size:12px}
+                                                                                                  .check-row dt{
+                                                                                                    color:var(--muted)}
+                                                                                                    .check-row dd{
+                                                                                                      margin:0;
+                                                                                                      text-align:right;
+                                                                                                      font-weight:600}
+                                                                                                      .xr-box{
+                                                                                                        background:#f1f6f3;
+                                                                                                        padding:18px;
+                                                                                                        border-radius:7px;
+                                                                                                        margin-top:22px}
+                                                                                                        .xr-box p{
+                                                                                                          font-size:12px;
+                                                                                                          color:var(--muted)}
+                                                                                                          .xr-box button{
+                                                                                                            margin:0 4px 4px 0}
+                                                                                                            .snapshot{
+                                                                                                              aspect-ratio:4/3;
+                                                                                                              background:#f0f4f1;
+                                                                                                              border:1px dashed #c2d4cb;
+                                                                                                              border-radius:8px;
+                                                                                                              display:grid;
+                                                                                                              place-items:center;
+                                                                                                              overflow:hidden}
+                                                                                                              .snapshot p{
+                                                                                                                text-align:center;
+                                                                                                                color:var(--muted);
+                                                                                                                font-size:13px}
+                                                                                                                .snapshot img{
+                                                                                                                  max-width:100%;
+                                                                                                                  max-height:100%;
+                                                                                                                  object-fit:contain}
+                                                                                                                  .checkbox{
+                                                                                                                    display:flex;
+                                                                                                                    align-items:flex-start;
+                                                                                                                    gap:10px;
+                                                                                                                    font-size:12px;
+                                                                                                                    font-weight:400;
+                                                                                                                    margin:18px 0}
+                                                                                                                    .checkbox input{
+                                                                                                                      width:18px;
+                                                                                                                      height:18px;
+                                                                                                                      flex-shrink:0;
+                                                                                                                      margin:2px 0 0;
+                                                                                                                      accent-color:var(--accent)}
+                                                                                                                      details{
+                                                                                                                        font-size:12px}
+                                                                                                                        summary{
+                                                                                                                          cursor:pointer;
+                                                                                                                          font-weight:650;
+                                                                                                                          padding:8px 0}
+                                                                                                                          details input{
+                                                                                                                            margin-bottom:8px}
+                                                                                                                            .ai-result{
+                                                                                                                              white-space:pre-wrap;
+                                                                                                                              overflow-wrap:anywhere;
+                                                                                                                              font:13px/1.6 system-ui,sans-serif}
+                                                                                                                              .ai-result:empty{
+                                                                                                                                display:none}
+                                                                                                                                .ai-result:not(:empty){
+                                                                                                                                  padding:16px;
+                                                                                                                                  background:var(--mint);
+                                                                                                                                  border-radius:8px}
+                                                                                                                                  .log-card{
+                                                                                                                                    margin-top:22px}
+                                                                                                                                    #log{
+                                                                                                                                      max-height:250px;
+                                                                                                                                      overflow:auto;
+                                                                                                                                      font-size:11px;
+                                                                                                                                      white-space:pre-wrap}
+                                                                                                                                      footer{
+                                                                                                                                        display:flex;
+                                                                                                                                        justify-content:space-between;
+                                                                                                                                        gap:20px;
+                                                                                                                                        color:var(--muted);
+                                                                                                                                        font-size:9px;
+                                                                                                                                        letter-spacing:.1em;
+                                                                                                                                        padding:28px 0 40px}
+                                                                                                                                        body.xr-active #app{
+                                                                                                                                          background:#f2f6f3ee;
+                                                                                                                                          max-width:650px;
+                                                                                                                                          max-height:80vh;
+                                                                                                                                          overflow:auto;
+                                                                                                                                          padding:16px}
+                                                                                                                                          body.xr-active .intro{
+                                                                                                                                            display:none}
+                                                                                                                                            @media(max-width:800px){
+                                                                                                                                              main{
+                                                                                                                                                padding:0 18px}
+                                                                                                                                                header{
+                                                                                                                                                  min-height:75px}
+                                                                                                                                                  header>.tag,.brand .muted{
+                                                                                                                                                    display:none}
+                                                                                                                                                    .intro{
+                                                                                                                                                      padding:34px 0 28px;
+                                                                                                                                                      gap:20px;
+                                                                                                                                                      align-items:flex-start;
+                                                                                                                                                      flex-direction:column}
+                                                                                                                                                      .privacy{
+                                                                                                                                                        max-width:100%;
+                                                                                                                                                        padding:0 0 0 15px}
+                                                                                                                                                        .workspace{
+                                                                                                                                                          grid-template-columns:1fr}
+                                                                                                                                                          .status-strip{
+                                                                                                                                                            grid-template-columns:1fr 1fr;
+                                                                                                                                                            padding:16px;
+                                                                                                                                                            gap:14px}
+                                                                                                                                                            .card{
+                                                                                                                                                              padding:19px}
+                                                                                                                                                              .card-heading{
+                                                                                                                                                                flex-wrap:wrap}
+                                                                                                                                                                footer{
+                                                                                                                                                                  flex-direction:column;
+                                                                                                                                                                  gap:5px}
+                                                                                                                                                                }
